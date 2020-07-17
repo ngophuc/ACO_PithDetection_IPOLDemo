@@ -1,0 +1,282 @@
+<%include file="header-jquery.html" />
+<script type="text/javascript">
+<%include file="js/createlinkedslider.js" />
+</script>
+
+<p>
+  You can set the following parameters for the algorithm: <br/>
+</p>
+
+<form action="${app.base_url + 'wait'}" method="get">
+    <input type="hidden" name="key" value="${app.key}">
+      <div class="action">
+      <ul>
+      <li> 1. Parameters of pre-processing step
+        <ul>
+          <li>
+          <!-- code for slider : scale -->
+          <div style="float:left;padding-right:25px">
+          <label for="scale">Resize input image (<font color=blue><i>--scale,-s</i></font>):</label>
+           <input type="text" style="font-family:monospace;text-align:right" size="5" id="scale" name="scale" value="0.4" />
+          </div>
+          <div id="scale_slider" name="scale_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+          <script type="text/javascript">
+          // Turn DIV slider into a slider linked to scale
+          $(document).ready(function() {
+                createLinkedSlider('#scale', '#scale_slider', 0.1, 1.0, 0.1);
+          });
+          </script>
+          <div style="clear:both"> </div>
+          <!-- end of code for slider -->
+          </li>
+          <li>
+            <!-- code for slider : lambda -->
+            <div style="float:left;padding-right:25px">
+            <label for="lambda">Sawing removal parameter for Fourier spectrum threshold (<font color=blue><i>--lambda,-l</i></font>):</label>
+             <input type="text" style="font-family:monospace;text-align:right" size="5" id="lambda" name="lambda" value="0.6" />
+            </div>
+            <div id="lambda_slider" name="lambda_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+            <script type="text/javascript">
+            // Turn DIV slider into a slider linked to scale
+            $(document).ready(function() {
+                  createLinkedSlider('#lambda', '#lambda_slider', 0.1, 1.0, 0.1);
+            });
+            </script>
+            <div style="clear:both"> </div>
+            <!-- end of code for slider -->
+          </li>
+          <li>
+            <!-- code for slider : lsigma -->
+            <div style="float:left;padding-right:25px">
+            <label for="lsigma">Sawing removal parameter for Gaussian filter of detected line (<font color=blue><i>--lsigma,-w</i></font>):</label>
+             <input type="text" style="font-family:monospace;text-align:right" size="5" id="lsigma" name="lsigma" value="0.9" />
+            </div>
+            <div id="lsigma_slider" name="lsigma_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+            <script type="text/javascript">
+            // Turn DIV slider into a slider linked to scale
+            $(document).ready(function() {
+                  createLinkedSlider('#lsigma', '#lsigma_slider', 0.5, 1.5, 0.1);
+            });
+            </script>
+            <div style="clear:both"> </div>
+            <!-- end of code for slider -->
+          </li>
+          <li>
+            <!-- code for slider : quantizer -->
+            <div style="float:left;padding-right:25px">
+            <label for="quantizer">Quantizer for pixels in the preprocessed image (<font color=blue><i>--quantizer,-q</i></font>):</label>
+             <input type="text" style="font-family:monospace;text-align:right" size="5" id="quantizer" name="quantizer" value="4" />
+            </div>
+            <div id="quantizer_slider" name="quantizer_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+            <script type="text/javascript">
+            // Turn DIV slider into a slider linked to scale
+            $(document).ready(function() {
+                  createLinkedSlider('#quantizer', '#quantizer_slider', 1, 10, 1);
+            });
+            </script>
+            <div style="clear:both"> </div>
+            <!-- end of code for slider -->
+          </li>
+        </ul>  
+      </li>
+
+      <li> 2. Parameters of local orientation estimation
+        <ul>
+           <li>
+            <!-- code for slider : dx -->
+            <div style="float:left;padding-right:25px">
+            <label for="dx">Number of sub-images in x-axis (<font color=blue><i>--dx,-x</i></font>):</label>
+             <input type="text" style="font-family:monospace;text-align:right" size="5" id="dx" name="dx" value="4" />
+            </div>
+            <div id="dx_slider" name="dx_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+            <script type="text/javascript">
+            // Turn DIV slider into a slider linked to scale
+            $(document).ready(function() {
+                  createLinkedSlider('#dx', '#dx_slider', 1, 10, 1);
+            });
+            </script>
+            <div style="clear:both"> </div>
+            <!-- end of code for slider -->
+          </li>
+          <li>
+            <!-- code for slider : dy -->
+            <div style="float:left;padding-right:25px">
+            <label for="dy">Number of sub-images in y-axis (<font color=blue><i>--dy,-y</i></font>):</label>
+             <input type="text" style="font-family:monospace;text-align:right" size="5" id="dy" name="dy" value="4" />
+            </div>
+            <div id="dy_slider" name="dy_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+            <script type="text/javascript">
+            // Turn DIV slider into a slider linked to scale
+            $(document).ready(function() {
+                  createLinkedSlider('#dy', '#dy_slider', 1, 10, 1);
+            });
+            </script>
+            <div style="clear:both"> </div>
+            <!-- end of code for slider -->
+          </li>
+          <li>
+            <!-- code for slider : gsigma -->
+            <div style="float:left;padding-right:25px">
+            <label for="gsigma">Gaussian standard deviation for local orientation (<font color=blue><i>--gsigma,-u</i></font>):</label>
+             <input type="text" style="font-family:monospace;text-align:right" size="5" id="gsigma" name="gsigma" value="2.0" />
+            </div>
+            <div id="gsigma_slider" name="gsigma_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+            <script type="text/javascript">
+            // Turn DIV slider into a slider linked to scale
+            $(document).ready(function() {
+                  createLinkedSlider('#gsigma', '#gsigma_slider', 0.0, 5.0, 0.5);
+            });
+            </script>
+            <div style="clear:both"> </div>
+            <!-- end of code for slider -->
+          </li>
+          <li>
+            <!-- code for slider : bsigma -->
+            <div style="float:left;padding-right:25px">
+            <label for="bsigma">Local window for local orientation (<font color=blue><i>--bsigma,-v</i></font>):</label>
+             <input type="text" style="font-family:monospace;text-align:right" size="5" id="bsigma" name="bsigma" value="4.0" />
+            </div>
+            <div id="bsigma_slider" name="bsigma_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+            <script type="text/javascript">
+            // Turn DIV slider into a slider linked to scale
+            $(document).ready(function() {
+                  createLinkedSlider('#bsigma', '#bsigma_slider', 1.0, 10.0, 1.0);
+            });
+            </script>
+            <div style="clear:both"> </div>
+            <!-- end of code for slider -->
+          </li>
+        </ul>
+      </li>  
+      
+      <li> 3. Parameters of ACO algorithm
+        <ul>
+          <li>
+            <!-- code for slider : iter -->
+            <div style="float:left;padding-right:25px">
+            <label for="iter">Maximum number of iterations (<font color=blue><i>--iter,-i</i></font>):</label>
+             <input type="text" style="font-family:monospace;text-align:right" size="5" id="iter" name="iter" value="50" />
+            </div>
+            <div id="iter_slider" name="iter_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+            <script type="text/javascript">
+            // Turn DIV slider into a slider linked to scale
+            $(document).ready(function() {
+                  createLinkedSlider('#iter', '#iter_slider', 10, 100, 10);
+            });
+            </script>
+            <div style="clear:both"> </div>
+            <!-- end of code for slider -->
+          </li>
+          <li>
+            <!-- code for slider : ant -->
+            <div style="float:left;padding-right:25px">
+            <label for="ant">Number of ants by line and column (<font color=blue><i>--ant,-n</i></font>):</label>
+             <input type="text" style="font-family:monospace;text-align:right" size="5" id="ant" name="ant" value="4" />
+            </div>
+            <div id="ant_slider" name="ant_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+            <script type="text/javascript">
+            // Turn DIV slider into a slider linked to scale
+            $(document).ready(function() {
+                  createLinkedSlider('#ant', '#ant_slider', 1, 10, 1);
+            });
+            </script>
+            <div style="clear:both"> </div>
+            <!-- end of code for slider -->
+          </li>
+          <li>
+            <!-- code for slider : block -->
+            <div style="float:left;padding-right:25px">
+            <label for="block">Number of block clusters around each ant (<font color=blue><i>--block,-b</i></font>):</label>
+             <input type="text" style="font-family:monospace;text-align:right" size="5" id="block" name="block" value="3" />
+            </div>
+            <div id="block_slider" name="block_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+            <script type="text/javascript">
+            // Turn DIV slider into a slider linked to scale
+            $(document).ready(function() {
+                  createLinkedSlider('#block', '#block_slider', 1, 10, 2);
+            });
+            </script>
+            <div style="clear:both"> </div>
+            <!-- end of code for slider -->
+          </li>
+          <li>
+            <!-- code for slider : omega -->
+            <div style="float:left;padding-right:25px">
+            <label for="omega">Size of each block cluster (<font color=blue><i>--omega,-o</i></font>):</label>
+             <input type="text" style="font-family:monospace;text-align:right" size="5" id="omega" name="omega" value="8" />
+            </div>
+            <div id="omega_slider" name="omega_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+            <script type="text/javascript">
+            // Turn DIV slider into a slider linked to scale
+            $(document).ready(function() {
+                  createLinkedSlider('#omega', '#omega_slider', 5, 15, 1);
+            });
+            </script>
+            <div style="clear:both"> </div>
+            <!-- end of code for slider -->
+          </li>
+          <li>
+            <!-- code for slider : alpha -->
+            <div style="float:left;padding-right:25px">
+            <label for="alpha">ACO parameter for pheromone matrix (<font color=blue><i>--alpha,-a</i></font>):</label>
+             <input type="text" style="font-family:monospace;text-align:right" size="5" id="alpha" name="alpha" value="2.0" />
+            </div>
+            <div id="alpha_slider" name="alpha_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+            <script type="text/javascript">
+            // Turn DIV slider into a slider linked to scale
+            $(document).ready(function() {
+                  createLinkedSlider('#alpha', '#alpha_slider', 0.0, 1.0, 0.1);
+            });
+            </script>
+            <div style="clear:both"> </div>
+            <!-- end of code for slider -->
+          </li>
+          <li>
+            <!-- code for slider : beta -->
+            <div style="float:left;padding-right:25px">
+            <label for="beta">ACO parameter for desirability matrix (<font color=blue><i>--beta,-b</i></font>):</label>
+             <input type="text" style="font-family:monospace;text-align:right" size="5" id="beta" name="beta" value="1.0" />
+            </div>
+            <div id="beta_slider" name="beta_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+            <script type="text/javascript">
+            // Turn DIV slider into a slider linked to scale
+            $(document).ready(function() {
+                  createLinkedSlider('#beta', '#beta_slider', 0.0, 1.0, 0.1);
+            });
+            </script>
+            <div style="clear:both"> </div>
+            <!-- end of code for slider -->
+          </li>
+          <li>
+            <!-- code for slider : gamma -->
+            <div style="float:left;padding-right:25px">
+            <label for="gamma">ACO parameter for pheromone evaporation rate (<font color=blue><i>--gamma,-g</i></font>):</label>
+             <input type="text" style="font-family:monospace;text-align:right" size="5" id="gamma" name="gamma" value="0.007" />
+            </div>
+            <div id="gamma_slider" name="gamma_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+            <script type="text/javascript">
+            // Turn DIV slider into a slider linked to scale
+            $(document).ready(function() {
+                  createLinkedSlider('#gamma', '#gamma_slider', 0.01, 0.1, 0.01);
+            });
+            </script>
+            <div style="clear:both"> </div>
+            <!-- end of code for slider -->
+          </li>
+        </ul>
+      </li>
+    </ul>    
+    <input type="submit" value="run" />
+  </div>
+</form>
+
+
+<hr />
+
+<div>
+  <!-- <img src="${app.work_url + 'input_0.png'}" alt="" /> -->
+  <img  height="300" src="${app.work_url + 'input_0.png'}" alt="Input image" />
+
+</div>
+
+<%include file="footer.html" />

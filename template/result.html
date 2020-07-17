@@ -1,0 +1,100 @@
+<%include file="header.html" />
+
+<p> The main algorithm was applied with the following parameters:
+<ul>
+
+</ul>
+</p>
+
+
+
+
+<BR>
+<BR>
+<form action="${app.base_url}" method="get">
+  <div class="action">
+    Restart this algorithm with new data.
+    <input type="submit" value="new input" />
+  </div>
+</form>
+
+<form action="${app.base_url + 'params'}" method="get">
+  <div class="action">
+    Restart this algorithm with new parameters.
+    <input type="hidden" name="key" value="${app.key}">
+    <input type="hidden" name="newrun" value="1">
+    <input type="submit" value="new parameters" />
+  </div>
+</form>
+
+<hr />
+
+<h2>Result</h2>
+
+<p>You can see and download the result here.</p>
+<p>Output result</br>
+<object width="1200" height="115" type="text/plain" data="${app.work_url+'algoLog.txt'}" border="0" > </object>
+</p>
+<p>Execution command</br>
+<object width="1200" height="30" type="text/plain" data="${app.work_url+'commands.txt'}" border="0" > </object>
+</p>
+<p><span style="color: #ff00ff">Pink</span>: First estimation </br>
+<span style="color: #0000ff">Blue</span>: Second (final) estimation </p>
+
+<div class="gallery" style="height:${height}px">
+  <ul class="index">
+     <li>
+      <a href="${app.work_url+'Result.png'}">Detection Result
+  <span>
+    <!-- <img  height="${height}" src="${app.work_url + 'Result.png'}" alt="Pith detection result" /> -->
+    <img  height="600" src="${app.work_url + 'Result.png'}" alt="Pith detection result" />
+  </span>
+      </a>
+    </li>
+
+    <li>
+      <a href="${app.work_url+'input_0.png'}">Input Image
+	<span>
+	  <!-- <img height="${height}" src="${app.work_url + 'input_0.png'}" alt="Input Image" /> -->
+    <img height="600" src="${app.work_url + 'input_0.png'}" alt="Input Image" />
+	</span>
+      </a>
+    </li>
+    <li>
+      <a href="${app.work_url+'algoLog.txt'}">Output Log
+  <span>
+    <object  width="1000" height="600" type="text/plain" data="${app.work_url + 'algoLog.txt'}"/>  </object>
+  </span>
+      </a>
+    </li>
+  <!---  
+    <li>
+      <a href="${app.work_url+'commands.txt'}">Execution Commande
+  <span>
+    <object  width="1000" height="600" type="text/plain" data="${app.work_url + 'commands.txt'}"/>  </object>
+  </span>
+      </a>
+    </li>
+  -->
+  </ul>
+</div>
+
+<h2>
+  <a class="toggle" href="#commands" onclick="toggle('commands');">
+    Additional Info
+  </a>
+</h2>
+<div id="commands" style="display:none">
+<p>
+The algorithm ran with the following commands:
+<pre class="stdio"> ${app.list_commands} </pre>
+</p>
+</div>
+
+
+
+
+<hr />
+<%include file="archive_info.html" />
+
+<%include file="footer.html" />
