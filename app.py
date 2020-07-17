@@ -81,6 +81,8 @@ class app(base_app):
             self.cfg['param']['gamma'] = kwargs['gamma']
             self.cfg['param']['lambda'] = kwargs['lambda']
             self.cfg['param']['iter'] = kwargs['iter']
+            self.cfg['param']['kappa'] = kwargs['kappa']
+            self.cfg['param']['epsilon'] = kwargs['epsilon']
             self.cfg.save()
         except ValueError:
             return self.error(errcode='badparams',
@@ -152,7 +154,9 @@ class app(base_app):
                        ['-b', str(self.cfg['param']['beta'])]+ \
                        ['-g', str(self.cfg['param']['gamma'])]+ \
                        ['-l', str(self.cfg['param']['lambda'])]+ \
-                       ['-i', str(self.cfg['param']['iter'])]
+                       ['-i', str(self.cfg['param']['iter'])] + \
+                       ['-k', str(self.cfg['param']['kappa'])] + \
+                       ['-e', str(self.cfg['param']['epsilon'])]
 
         f = open(self.work_dir+"algoLog.txt", "w")
         cmd = self.runCommand(command_args, None, f)
