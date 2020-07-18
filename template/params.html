@@ -68,13 +68,13 @@
             <!-- code for slider : lambda -->
             <div style="float:left;padding-right:25px">
             <label for="lambda"> Fourier spectrum threshold (<font color=blue><i>--lambda,-l</i></font>):</label>
-             <input type="text" style="font-family:monospace;text-align:right" size="5" id="lambda" name="lambda" value="0.6" />
+             <input type="text" style="font-family:monospace;text-align:right" size="5" id="lambda" name="lambda" value="0.9" />
             </div>
             <div id="lambda_slider" name="lambda_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
             <script type="text/javascript">
             // Turn DIV slider into a slider linked to scale
             $(document).ready(function() {
-                  createLinkedSlider('#lambda', '#lambda_slider', 0.1, 1.0, 0.1);
+                  createLinkedSlider('#lambda', '#lambda_slider', 0.5, 1.5, 0.1);
             });
             </script>
             <div style="clear:both"> </div>
@@ -84,13 +84,13 @@
             <!-- code for slider : lsigma -->
             <div style="float:left;padding-right:25px">
             <label for="lsigma">Gaussian filter on detected line (<font color=blue><i>--lsigma,-w</i></font>):</label>
-             <input type="text" style="font-family:monospace;text-align:right" size="5" id="lsigma" name="lsigma" value="0.875" />
+             <input type="text" style="font-family:monospace;text-align:right" size="5" id="lsigma" name="lsigma" value="6.0" />
             </div>
             <div id="lsigma_slider" name="lsigma_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
             <script type="text/javascript">
             // Turn DIV slider into a slider linked to scale
             $(document).ready(function() {
-                  createLinkedSlider('#lsigma', '#lsigma_slider', 0.5, 1.5, 0.1);
+                  createLinkedSlider('#lsigma', '#lsigma_slider', 5.0, 10.0, 1.0);
             });
             </script>
             <div style="clear:both"> </div>
